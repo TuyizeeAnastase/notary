@@ -1,4 +1,5 @@
 import express from 'express'
+import userRouter from './user.routers'
 
 
 const routes=express()
@@ -8,6 +9,8 @@ routes.get('/',(req,res)=>{
         message:"Welcome"
     })
 })
+
+routes.use("/api/v1/users",userRouter)
 
 routes.get("*", (req, res) => {
     res.status(404).json({

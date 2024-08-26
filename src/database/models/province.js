@@ -9,6 +9,11 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey:'provinceId',
       as:'districts',
       onDelete:'CASCADE'
+    }),
+    Province.hasMany(models.User,{
+      foreignKey:'provinceId',
+      as:'province',
+      onDelete:'CASCADE'
     })
   }
   return Province;

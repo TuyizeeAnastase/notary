@@ -5,6 +5,11 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon --exec npx babel-node src/app.js",
+    "migrate": "npx sequelize db:migrate",
+    "migrate:reset": "npx sequelize-cli db:migrate:undo:all && npm run migrate",
+    "seed": "npx sequelize-cli db:seed:all",
+    "seeding": "npm run migrate:reset && npm run seed",
+    "reset:db": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npm run seeding",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -19,6 +24,7 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "joi": "^17.13.3",
     "morgan": "^1.10.0",
     "path": "^0.12.7",
     "pg": "^8.12.0",
