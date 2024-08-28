@@ -9,10 +9,10 @@ export class userControllers{
                telephone:req.body.telephone,
                email:req.body.email,
                residence:req.body.residence,
-               provinceId:province,
-               districtId:district,
-               sectorId:sector,
-               cellId:cell 
+               provinceId:req.body.provinceId,
+               districtId:req.body.districtId,
+               sectorId:req.body.sectorId,
+               cellId:req.body.cellId 
             }
             const user=await registerUser(newUSer)
             return res.status(201).json({

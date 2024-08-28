@@ -15,10 +15,10 @@ export const getAllUsers=async()=>{
                 model:District,
                 as:'district'
             },
-            {
-                model:Sector,
-                as:'sector'
-            },
+            // {
+            //     model:Sector,
+            //     as:'sector'
+            // },
             {
                 model:Cell,
                 as:'cell'
