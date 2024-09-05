@@ -1,7 +1,14 @@
-import {Sector} from '../database/models'
+import {Sector,Cell} from '../database/models'
 
 export const getAllSectors=async()=>{
-    const sectors=await Sector.findAndCountAll([])
+    const sectors=await Sector.findAndCountAll({
+        include:[
+            {
+              model:Cell,
+              as:'cells'
+            }
+        ]
+    })
     return sectors;
 }
 

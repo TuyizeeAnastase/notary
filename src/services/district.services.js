@@ -1,7 +1,20 @@
-import {District} from '../database/models'
+import {District,Sector,Cell} from '../database/models'
 
 export const getAllDistricts=async()=>{
-    const districts=await District.findAndCountAll([])
+    const districts=await District.findAndCountAll({
+        include:[
+            {
+                model: Sector,
+                as: 'sectors',
+                include:[
+                    {
+                        model:Cell,
+                        as:'cells'
+                    }
+                ]
+            }
+        ]
+    })
     return districts;
 }
 

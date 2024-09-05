@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
       onDelete:'CASCADE'
     }),
     District.hasMany(models.Sector,{
-      foreignKey:'sectorId',
+      foreignKey:'districtId',
       as:'sectors',
       onDelete:'CASCADE'
     })

@@ -1,7 +1,7 @@
 import {Cell} from '../database/models'
 
 export const getAllCells=async()=>{
-    const cells=await Cell.findAndCountAll([])
+    const cells=await Cell.findAndCountAll({})
     return cells
 }
 

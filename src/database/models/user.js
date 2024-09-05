@@ -32,6 +32,46 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey:'cellId',
       as:'cell',
       onDelete:'CASCADE'
+    }),
+    User.hasMany(models.HouseRentalAgreement,{
+      foreignKey:'tenantId',
+      as:'tenant',
+      onDelete:'CASCADE'
+    }),
+    User.hasMany(models.HouseRentalAgreement,{
+      foreignKey:'landlordId',
+      as:'landlord',
+      onDelete:'CASCADE'
+    }),
+    User.hasMany(models.LegalAssistanceAgreement,{
+      foreignKey:'requesterId',
+      as:'requester',
+      onDelete:'CASCADE'
+    }),
+    User.hasMany(models.LegalAssistanceAgreement,{
+      foreignKey:'receiverId',
+      as:'reciever',
+      onDelete:'CASCADE'
+    }),
+    User.hasMany(models.SalesMarketingAgreement,{
+      foreignKey:'company_id',
+      as:'company',
+      onDelete:'CASCADE'
+    }),
+    User.hasMany(models.SalesMarketingAgreement,{
+      foreignKey:'representative_id',
+      as:'representative',
+      onDelete:'CASCADE'
+    }),
+    User.hasMany(models.SalesMarketingAgreement,{
+      foreignKey:'witness_one',
+      as:'witness_one',
+      onDelete:'CASCADE'
+    }),
+    User.hasMany(models.SalesMarketingAgreement,{
+      foreignKey:'witness_two',
+      as:'witness_two',
+      onDelete:'CASCADE'
     })
   }
   return User;
